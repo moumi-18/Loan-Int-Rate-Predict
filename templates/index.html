@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 	<style>
 		body {
-			background-image: url("images/logo2.png");
+			background-image: url("templates/images/logo2.png");
 			height: 100%;
 			background-position: center;
 			background-repeat: no-repeat;
@@ -18,7 +18,6 @@
 <body>
 	<h1 style="font-family:Courier New; color:blue" align="center"> LOAN INTEREST RATE PREDICTION </h1>
 	<div style="color:blue">
-
 		<form action="/predict" method="post">
 		<h4> Amount Requested: </h4>
 		<input type="text" name="amount_requested" required="required" oninput="this.value = this.value.replace(/[^0-9.]/g, '0').replace(/(\..*)\./g, '0');">
@@ -87,7 +86,7 @@
 		<br>
 		<br>
 		<button id="sub" type="submit"> Predict </button>
-		<button type="reset" value="reset"> Reset </button>
+		<button type="reset"> Reset </button>
 		<br>
 	</form>
 	<br>
