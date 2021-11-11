@@ -4,7 +4,7 @@ import pickle
 import math
 
 app = Flask(__name__)
-model = pickle.load(open('model.pkl','rb'))
+model = pickle.load(open('model3.pkl','rb'))
 
 @app.route('/')
 def home():
