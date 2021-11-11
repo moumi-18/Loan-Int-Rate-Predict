@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<style>
+		body {
+			background-image: url("images/logo2.png");
+			height: 100%;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 500px 500px;
+			position: relative;
+			background-color: #c1e1ec;
+		}
+</style>
+</head>
+<body>
+	<h1 style="font-family:Courier New; color:blue" align="center"> LOAN INTEREST RATE PREDICTION </h1>
+	<div style="color:blue">
+
+		<form action="/predict" method="post">
+		<h4> Amount Requested: </h4>
+		<input type="text" name="amount_requested" required="required" oninput="this.value = this.value.replace(/[^0-9.]/g, '0').replace(/(\..*)\./g, '0');">
+		<h4> Amount Funded By Investors: </h4>
+		<input type="text" name="amount_funded_by_investors" required="required" oninput="this.value = this.value.replace(/[^0-9.]/g, '0').replace(/(\..*)\./g, '0');">
+		<h4> Debt to Income Ratio: </h4>
+		<input type="text" name="debt_to_income_ratio" required="required" oninput="this.value = this.value.replace(/[^0-9.]/g, '0').replace(/(\..*)\./g, '0');">
+		<h4> Monthly Income: </h4>
+		<input type="text" name="monthly_income" required="required" oninput="this.value = this.value.replace(/[^0-9.]/g, '0').replace(/(\..*)\./g, '0');">
+		<h4> Open Credit Lines: </h4>
+		<input type="text" name="open_cr_line" required="required" oninput="this.value = this.value.replace(/[^0-9.]/g, '0').replace(/(\..*)\./g, '0');">
+		<h4> Revolving Credit Balance: </h4>
+		<input type="text" name="rev_cr_bal" required="required" oninput="this.value = this.value.replace(/[^0-9.]/g, '0').replace(/(\..*)\./g, '0');">
+		<h4> Inquiries in the last 6 Months </h4>
+		<input type="text" name="last_inq_6_months" required="required" oninput="this.value = this.value.replace(/[^0-9.]/g, '0').replace(/(\..*)\./g, '0');">
+		<h4> Loan Length </h4>
+		<select name="Loan_Length" id="Loan_Length" required="required">
+		<option value="0">36 Months</option>
+		<option value="1">60 Months</option>
+		</select>
+		<h4> Loan Purpose </h4>
+		<select name="Loan_Purpose" id="Loan_Purpose" required="required">
+		<option value="0">Car</option>
+		<option value="1">Credit Card</option>
+		<option value="2">Debt Consolidation</option>
+		<option value="3">Educational</option>
+		<option value="4">Home Improvement</option>
+		<option value="5">House</option>
+		<option value="6">Major Purchase</option>
+		<option value="7">Medical</option>
+		<option value="8">Moving</option>
+		<option value="9">Other</option>
+		<option value="10">Renewable Energy</option>
+		<option value="11">Small Business</option>
+		<option value="12">Vacation</option>
+		<option value="13">Wedding</option>
+		</select>
+		<h4> Home Ownership Type </h4>
+		<select name="Home_Ownership" id="Home_Ownership" required="required">
+		<option value="0">Mortgage</option>
+		<option value="1">None</option>
+		<option value="2">Other</option>
+		<option value="3">Own</option>
+		<option value="4">Rent</option>
+		</select>
+		<h4> Employment Tenure of the Customer: </h4>
+		<select name="Employment_Length" id="Employment_Length" required="required">
+		<option value="0">1 Year</option>
+		<option value="1">10+ Years</option>
+		<option value="2">2 Years</option>
+		<option value="3">3 Years</option>
+		<option value="4">4 Years</option>
+		<option value="5">5 Years</option>
+		<option value="6">6 Years</option>
+		<option value="7">7 Years</option>
+		<option value="8">8 Years</option>
+		<option value="9">9 Years</option>
+		</select>
+		<h4> FICO Score </h4>
+		<select name="FICO_Score_Scaled" id="FICO_Score_Scaled" required="required">
+		<option value="0">Fair</option>
+		<option value="1">Good</option>
+		<option value="2">Very Good</option>
+		<option value="3">Exceptional</option>
+		</select>
+		<br>
+		<br>
+		<button id="sub" type="submit"> Predict </button>
+		<button type="reset" value="reset"> Reset </button>
+		<br>
+	</form>
+	<br>
+	" {{ output_text }} "
+	<br>
+	<br>
+	</div>
+</body>
+</html>
